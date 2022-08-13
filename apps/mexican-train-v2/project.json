@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mexican-train-v2/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/mexican-train-v2",
+        "index": "apps/mexican-train-v2/src/index.html",
+        "baseHref": "/",
+        "main": "apps/mexican-train-v2/src/main.tsx",
+        "polyfills": "apps/mexican-train-v2/src/polyfills.ts",
+        "tsConfig": "apps/mexican-train-v2/tsconfig.app.json",
+        "assets": [
+          "apps/mexican-train-v2/src/favicon.ico",
+          "apps/mexican-train-v2/src/assets"
+        ],
+        "styles": ["apps/mexican-train-v2/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/mexican-train-v2/src/environments/environment.ts",
+              "with": "apps/mexican-train-v2/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "mexican-train-v2:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "mexican-train-v2:build:development"
+        },
+        "production": {
+          "buildTarget": "mexican-train-v2:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mexican-train-v2/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/mexican-train-v2"],
+      "options": {
+        "jestConfig": "apps/mexican-train-v2/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

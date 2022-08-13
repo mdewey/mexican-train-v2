@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "mexican-train-v2": "apps/mexican-train-v2",
+    "mexican-train-v2-e2e": "apps/mexican-train-v2-e2e"
+  }
+}
