@@ -1,11 +1,17 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
+import AddPlayer from './components/AddPlayer';
+import Scorecard from './components/Scorecard';
+import SetRounds from './components/SetRounds';
+import Home from './pages/Home';
 
 export function App() {
   return (
     <>
-      <NxWelcome title="mexican-train-v2" />
+      <Home />
+      <AddPlayer />
+      <SetRounds />
+      <Scorecard />
       <div />
     </>
   );
