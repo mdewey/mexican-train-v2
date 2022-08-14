@@ -12,8 +12,8 @@ const initialState: GameState = {
   totalRounds: 12
 }
 
+
 const gameReducer = (state: any = initialState, action: any): GameState => {
-  console.log({ state, action });
   switch (action.type) {
     case 'ADD_PLAYER':
       return {
@@ -24,6 +24,23 @@ const gameReducer = (state: any = initialState, action: any): GameState => {
       return {
         ...state,
         totalRounds: action.payload.totalRounds
+      }
+    case "UPDATE_SCORE":
+      // get the player by id
+      return {
+        ...state,
+        players: [...state.players].map(p => {
+          if (p.id === action.payload.player.id) {
+            return {
+              ...p,
+              scores: {
+                ...p.scores,
+                [action.payload.round]: parseInt(action.payload.score)
+              }
+            }
+          }
+          return p
+        })
       }
     default:
       return state

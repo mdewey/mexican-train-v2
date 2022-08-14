@@ -8,7 +8,6 @@ function SetRounds() {
 
   useEffect(
     () => {
-      console.log('set rounds', { rounds });
       dispatch({ type: 'SET_TOTAL_ROUNDS', payload: { totalRounds: rounds } });
     },
     [rounds, dispatch]

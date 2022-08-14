@@ -7,7 +7,6 @@ import PlayerRow from './PlayerRow';
 
 function Scorecard() {
   const players = useAppSelector(state => state.game.players);
-  console.log(players)
   return (
     <div>
       <h1>Scorecard</h1>

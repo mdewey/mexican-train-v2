@@ -28,7 +28,7 @@ const generateScoresForPlayer = () => {
 }
 
 
-const createPlayer = (name: string, id: number, generateScores = true): Player => {
+const createPlayer = (name: string, id: number, generateScores = false): Player => {
   const playerName = name || animalNames[Math.floor(Math.random() * animalNames.length)]
   return {
     name: playerName,
