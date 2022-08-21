@@ -3,3 +3,31 @@
   margin: 3rem;
   border: 1px solid green;
 }
+
+.player {
+  display: flex;
+
+  ul {
+    list-style: none;
+    display: flex;
+
+  }
+}
+
+.scorecard {
+  ul {
+    list-style: none;
+  }
+}
+
+.highest-score {
+  background-color: orange;
+}
+
+.lowest-score {
+  background-color: greenyellow;
+}
+
+.lowest-score.highest-score {
+  background-color: initial;
+}

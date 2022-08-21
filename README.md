@@ -14,8 +14,8 @@ But seriously, there is a wired bug and I don't care to debug, so I will rewrite
 - [x] Add Players
 - [x] Set Rounds
 - [x] Add scores
-- [ ] highest and lowest scores are marked
-- [ ] Acceptable UI for mobile
+- [x] highest and lowest scores are marked
+- [ ] Acceptable UI/UX for mobile
 - [ ] Add cypress tests
 - [ ] Add to CI pipeline
 

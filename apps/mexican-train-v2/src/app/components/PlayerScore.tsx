@@ -17,10 +17,10 @@ function PlayerScore({ player, round }: { player: Player; round: number }) {
     if (e.detail === 2) {
       setIsEditing(true);
     }
-  }
+  };
   const onChange = (e: any) => {
     setScore(e.target.value);
-  }
+  };
 
   const onKeyDown = useCallback((e: any) => {
     if (e.key === 'Enter') {
@@ -35,14 +35,20 @@ function PlayerScore({ player, round }: { player: Player; round: number }) {
   if (isEditing) {
     return (
       <li>
-        <input type="number" onChange={onChange} onKeyDown={onKeyDown} onBlur={onBlur} />
+        <input
+          type="number"
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          onBlur={onBlur}
+          placeholder={score.toString()}
+        />
       </li>
     );
   }
 
   return (
     <li className="player-score" onClick={onClick}>
-      score:{player.scores[round] || 0}<br />
+      {player.scores[round] || 0}<br />
     </li>
   );
 }
