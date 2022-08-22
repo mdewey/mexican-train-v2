@@ -15,7 +15,9 @@ But seriously, there is a wired bug and I don't care to debug, so I will rewrite
 - [x] Set Rounds
 - [x] Add scores
 - [x] highest and lowest scores are marked
-- [ ] Acceptable UI/UX for mobile
+- [x] Acceptable UI/UX for mobile
+- [ ] save state if page is reloaded
+- [ ] remove players
 - [ ] Add cypress tests
 - [ ] Add to CI pipeline
 

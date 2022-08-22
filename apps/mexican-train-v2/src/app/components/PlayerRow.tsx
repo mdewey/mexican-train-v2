@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { useAppSelector } from '../hooks';
 import { Player } from '../utils/player/factory';
 import PlayerScore from './PlayerScore';
+import RemoveButton from './RemoveButton';
 
 
 function PlayerRow(player: Player) {
@@ -24,6 +25,7 @@ function PlayerRow(player: Player) {
   }
 
   const scoreClass = classNames({
+    'player-total': true,
     'highest-score': totalScore === topScores.highestFoundScore,
     'lowest-score': totalScore === topScores.lowestFoundScore,
   });
@@ -31,15 +33,16 @@ function PlayerRow(player: Player) {
 
   return (
     <div className='player'>
-      <section className="player-main">
+      <section className="player-main player-square">
         <h5>{player.name}</h5>
-        <h6 className={scoreClass}>total score:{totalScore}</h6>
+        <h6 className={scoreClass}>{totalScore}</h6>
       </section>
       <ul>
         {Array(totalRounds).fill(0).map((_, index) => {
           const round = totalRounds - index;
           return <PlayerScore key={index} player={player} round={round} />;
         })}
+        <li className='delete-square'><RemoveButton {...player} /></li>
       </ul>
     </div>
   );

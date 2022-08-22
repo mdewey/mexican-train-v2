@@ -17,6 +17,13 @@ const initialState: GameState = {
 
 const gameReducer = (state: any = initialState, action: any): GameState => {
   switch (action.type) {
+    case 'REMOVE_PLAYER':
+      return {
+        ...state,
+        players: state
+          .players
+          .filter((player: Player) => player.id !== action.payload.id)
+      };
     case 'SET_TOP_SCORES':
       return {
         ...state,

@@ -9,8 +9,10 @@ export function App() {
   return (
     <>
       <Home />
-      <AddPlayer />
-      <SetRounds />
+      <section className="manage-game">
+        <AddPlayer />
+        <SetRounds />
+      </section>
       <Scorecard />
       <div />
     </>

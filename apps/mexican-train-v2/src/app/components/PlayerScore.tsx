@@ -34,7 +34,7 @@ function PlayerScore({ player, round }: { player: Player; round: number }) {
 
   if (isEditing) {
     return (
-      <li>
+      <li className='card-square'>
         <input
           type="number"
           onChange={onChange}
@@ -47,7 +47,7 @@ function PlayerScore({ player, round }: { player: Player; round: number }) {
   }
 
   return (
-    <li className="player-score" onClick={onClick}>
+    <li className="player-score card-square" onClick={onClick}>
       {player.scores[round] || 0}<br />
     </li>
   );
