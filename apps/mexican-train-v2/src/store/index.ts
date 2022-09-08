@@ -85,7 +85,9 @@ export const store = configureStore({
   },
   devTools: process.env['NODE_ENV'] !== 'production',
   preloadedState: {
-    game: JSON.parse(localStorage.getItem("gameState") || "{}")
+    game: localStorage.getItem("gameState") ?
+      JSON.parse(localStorage.getItem("gameState") || "{}") :
+      initialState
   }
 });
 
