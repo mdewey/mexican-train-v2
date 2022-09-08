@@ -2,6 +2,10 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { createPlayer, Player } from '../app/utils/player/factory';
 
+import storage from "redux-persist";
+
+
+
 export interface GameState {
   players: Array<Player>
   totalRounds: number,
@@ -17,6 +21,8 @@ const initialState: GameState = {
 
 const gameReducer = (state: any = initialState, action: any): GameState => {
   switch (action.type) {
+    case "LOAD_GAME":
+      return action.payload;
     case 'REMOVE_PLAYER':
       return {
         ...state,
@@ -64,11 +70,23 @@ const gameReducer = (state: any = initialState, action: any): GameState => {
   }
 };
 
+const localStorageSaver =
+  (state: any = initialState, action: any): GameState => {
+    const newState = gameReducer(state, action);
+    localStorage.setItem("gameState", JSON.stringify(newState));
+    localStorage.setItem("gameStateVersion", "1.0.0");
+    localStorage.setItem("gameStateTimestamp", new Date().toISOString());
+    return newState;
+  };
 
 export const store = configureStore({
   reducer: {
-    game: gameReducer,
+    game: localStorageSaver,
   },
+  devTools: process.env['NODE_ENV'] !== 'production',
+  preloadedState: {
+    game: JSON.parse(localStorage.getItem("gameState") || "{}")
+  }
 });
 
 export type RootState = ReturnType<typeof store.getState>
