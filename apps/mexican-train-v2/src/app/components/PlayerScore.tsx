@@ -1,10 +1,11 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { useAppDispatch } from '../hooks';
 import { Player } from '../utils/player/factory';
 
 function PlayerScore({ player, round }: { player: Player; round: number }) {
   const [isEditing, setIsEditing] = useState(false);
   const [score, setScore] = useState(player.scores[round] || 0);
+  const inputRef = useRef<null | HTMLElement>(null);
 
   const dispatch = useAppDispatch();
 
@@ -32,6 +33,12 @@ function PlayerScore({ player, round }: { player: Player; round: number }) {
     updateScore();
   }, [updateScore]);
 
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isEditing]);
+
   if (isEditing) {
     return (
       <li className='card-square'>
@@ -41,6 +48,7 @@ function PlayerScore({ player, round }: { player: Player; round: number }) {
           onKeyDown={onKeyDown}
           onBlur={onBlur}
           placeholder={score.toString()}
+          ref={inputRef as any}
         />
       </li>
     );
