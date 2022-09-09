@@ -1,4 +1,4 @@
-import { animalNames } from './data'
+import { animalNames } from './data';
 
 export interface GameScores {
   [key: string]: number
@@ -24,19 +24,21 @@ const generateScoresForPlayer = () => {
     '10': Math.floor(Math.random() * 100),
     '11': Math.floor(Math.random() * 100),
     '12': Math.floor(Math.random() * 100),
-  }
-}
+  };
+};
 
 
-const createPlayer = (name: string, id: number, generateScores = false): Player => {
-  const playerName = name || animalNames[Math.floor(Math.random() * animalNames.length)]
+const createPlayer = (
+  name: string, id: number, generateScores = false): Player => {
+  const playerName =
+    name || animalNames[Math.floor(Math.random() * animalNames.length)];
   return {
     name: playerName,
     id: id || Math.floor(Math.random() * 100),
     scores: generateScores ? generateScoresForPlayer() : {}
-  }
-}
+  };
+};
 
 export {
   createPlayer
-}
+};

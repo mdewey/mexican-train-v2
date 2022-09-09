@@ -174,13 +174,14 @@ body,
     font-size: 1.5rem;
   }
 
+}
+
+.manage-game {
   button {
     text-transform: uppercase;
     padding: 0.5rem;
   }
-}
 
-.manage-game {
   // stacked for small screens and horizontal for larger screens
   display: flex;
   flex-direction: column;

@@ -2,8 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { createPlayer, Player } from '../app/utils/player/factory';
 
-import storage from "redux-persist";
-
 
 
 export interface GameState {
@@ -65,6 +63,15 @@ const gameReducer = (state: any = initialState, action: any): GameState => {
           return p;
         })
       };
+    case "RESET_GAME": {
+      return initialState;
+    }
+    case "RESET_SCORES": {
+      return {
+        ...state, players: [...state.players]
+          .map(p => { return createPlayer(p.name, p.id); })
+      };
+    }
     default:
       return state;
   }
