@@ -8,6 +8,7 @@ function AddPlayer() {
   const dispatch = useAppDispatch();
   const addPlayer = useCallback((player: string) => {
     dispatch({ type: 'ADD_PLAYER', payload: { name: player } });
+    setNewPlayer('');
   }, [dispatch]);
 
   return (
