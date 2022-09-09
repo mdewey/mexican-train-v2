@@ -3,6 +3,10 @@
 
 This is an update of the old app
 
+## Build status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8b691f5c-bc77-4500-b5c7-513965bb72be/deploy-status)](https://app.netlify.com/sites/willowy-sunburst-7e67cc/deploys)
+
 ## Why?
 
 The old one is bad and I should feel bad :-p.

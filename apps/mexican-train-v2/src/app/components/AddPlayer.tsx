@@ -16,7 +16,7 @@ function AddPlayer() {
 
       <input
         type="text"
-        placeholder="Ex: Bob"
+        placeholder="Ex: Becky"
         onChange={e => setNewPlayer(e.target.value)}
         value={newPlayer}
       />
