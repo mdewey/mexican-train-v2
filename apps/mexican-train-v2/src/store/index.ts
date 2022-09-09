@@ -64,7 +64,7 @@ const gameReducer = (state: any = initialState, action: any): GameState => {
         })
       };
     case "RESET_GAME": {
-      return initialState;
+      return { ...initialState };
     }
     case "RESET_SCORES": {
       return {
