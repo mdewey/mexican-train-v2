@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { useAppDispatch } from '../hooks'
+import { useAppDispatch } from '../hooks';
 
 
 function AddPlayer() {
@@ -11,7 +11,7 @@ function AddPlayer() {
   }, [dispatch]);
 
   return (
-    <section>
+    <section className='add-players'>
       <h5>Add player </h5>
 
       <input

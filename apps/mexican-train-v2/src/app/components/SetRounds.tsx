@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks'
+import { useAppDispatch, useAppSelector } from '../hooks';
 
 function SetRounds() {
   const totalRounds = useAppSelector(state => state.game.totalRounds);
@@ -11,9 +11,9 @@ function SetRounds() {
       dispatch({ type: 'SET_TOTAL_ROUNDS', payload: { totalRounds: rounds } });
     },
     [rounds, dispatch]
-  )
+  );
   return (
-    <section>
+    <section className='set-rounds'>
       <h5>Starting at</h5>
       <input
         type="number"
