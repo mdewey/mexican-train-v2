@@ -35,7 +35,7 @@ function Scorecard() {
         <ul className='score-card-header'>
           <li className='player-name player-square debug'>ROUND</li>
           {Array
-            .from({ length: totalRounds }, (_, i) => totalRounds - i)
+            .from({ length: totalRounds + 1 }, (_, i) => totalRounds - i)
             .map(round => (
               <li key={round} className='round-number card-square'>{round}</li>
             ))}

@@ -13,7 +13,7 @@ function PlayerRow(player: Player) {
 
   const totalScore = useMemo(() => {
     let total = 0;
-    for (let i = totalRounds; i >= 1; i--) {
+    for (let i = totalRounds; i >= 0; i--) {
       total += player.scores[i] || 0;
     }
     return total || 0;
@@ -38,7 +38,7 @@ function PlayerRow(player: Player) {
         <h6 className={scoreClass}>{totalScore}</h6>
       </section>
       <ul>
-        {Array(totalRounds).fill(0).map((_, index) => {
+        {Array(totalRounds + 1).fill(0).map((_, index) => {
           const round = totalRounds - index;
           return <PlayerScore key={index} player={player} round={round} />;
         })}
